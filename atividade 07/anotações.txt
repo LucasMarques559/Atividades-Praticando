@@ -1,0 +1,21 @@
+// Como e onde as variáveis são criadas em JavaScript?
+
+1° A principal diferença da linguagem JavaScript para as demais, é que quando criamos uma variável ela automaticamente já é alocada um espaço na memória, em exemplo linguagem como C, C++... É necessário primitivamente alocar um espaço na memória para a variável.
+
+2° Quando um código está em execução temos dois métodos: Call Stack e Heap
+    - Call Stack é para códigos primitivos como, números, strings, boolean, undefined, null, symbol, bigInt 
+    - Heap são códigos de maior complexidade, objetos, arrays, functions
+
+3° Quando temos um objeto ou então uma função, ele em si não armazena as propriedades em sí, exemplo:
+
+const curriculo = {
+    firstName: "Lucas",
+    age: 20,
+    position: "engineer software"
+}
+
+-> curriculo é uma variável que está apenas apontando/referenciando o endereço das variáveis (firstName, age, position) no Heap
+
+ou seja, o que está sendo abordado aqui é como o JavaScript com seu motor, automatiza a criação e a alocação dos métodos e a ordem de execução do código
+
+REALIZAR UM CÓDIGO LIMPO E SEGURO É SEMPRE IMPORTANTE PARA UMA BOA PRÁTICA E EFICIÊNCIA :>
