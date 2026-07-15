@@ -17,5 +17,17 @@ const [x, y, z] = arr;
 console.log(x, y, z);
 console.log(arr);
 
-const [first, second] = restaurant.categories;
-console.log(first, second);
+// dessa forma eu pulo o segundo valor e "second" passa a ser vegetarian
+const [main, ,secondary] = restaurant.categories;
+console.log(main, secondary);
+
+// Switching variables
+// const temp = main;
+// main = secondary;
+// secondary = temp;
+// console.log(main, secondary);
+
+// Switching with desestructuration
+[main, secondary] = [secondary, main];
+console.log(main, secondary);
+
