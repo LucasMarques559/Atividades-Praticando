@@ -27,7 +27,7 @@ const daniel = {
     lastName: "Marques",
     age: 22,
     married: true,
-    parents: ["Rúbia, Dinywester"]
+    family: ["Rúbia, Dinywester"]
 };
 
 // Aqui eu crio uma cópia dos atributos do objeto Daniel e armazeno em uma variável "danielCopy"
@@ -35,4 +35,15 @@ const daniel = {
 const danielCopy = { ...daniel };
 danielCopy.lastName = "Oliveira";
 
-console.log(daniel, danielCopy);
+// console.log(daniel, danielCopy);
+
+// daniel e danielCopy terão o mesmo valor em family, pois é uma cópia superficial, ou seja, é como se "family" fosse a variável e a array armazenada no heap
+// danielCopy.family.push("Lukas");
+// danielCopy.family.push("Joarlla");
+
+// deep clone
+const danielClone = structuredClone(daniel);
+danielClone.family.push("Lukas");
+danielClone.family.push("Joarlla");
+
+console.log(daniel, danielClone);
