@@ -21,3 +21,18 @@ console.log(lukas);
 // lukas = {
 //     newAge: 10
 // };
+
+const daniel = {
+    firstName: "Daniel",
+    lastName: "Marques",
+    age: 22,
+    married: true,
+    parents: ["Rúbia, Dinywester"]
+};
+
+// Aqui eu crio uma cópia dos atributos do objeto Daniel e armazeno em uma variável "danielCopy"
+// shallow copy
+const danielCopy = { ...daniel };
+danielCopy.lastName = "Oliveira";
+
+console.log(daniel, danielCopy);
