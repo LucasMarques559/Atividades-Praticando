@@ -42,6 +42,20 @@ console.log(restaurantName, hours, tags);
 const { menu = [], startMenu: starters = [] } = restaurant;
 console.log(menu, starters);
 
+// Mutating variables
+let e = 111;
+let f = 222;
+
+const obj = { e: 23, f: 67, g: 100 };
+({ e, f } = obj);
+console.log(e, f);
+
+// Nested Objects
+const {
+    fri: { open: abrido, close: fechado }
+} = hours;
+console.log(abrido, fechado);
+
 const arr = [2, 3, 4];
 const a = arr[0];
 const b = arr[1];
