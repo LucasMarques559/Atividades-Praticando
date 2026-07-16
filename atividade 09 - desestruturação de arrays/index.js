@@ -6,11 +6,41 @@ const restaurant = {
     categories: ["Italiana", "Pizzaria", "Vegetarian", "Organic"],
     startMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
     mainMenu: ["Pizza", "Pasta", "Risotto"],
+    openingHours: {
+        thu: {
+            open: 12,
+            close: 22
+        },
+
+        fri: {
+            open: 11,
+            close: 23
+        },
+
+        sat: {
+            open: 0,
+            close: 24 // 24 Horas aberto
+        }
+    },
 
     order: function (startIndex, mainIndex) {
         return [this.startMenu[startIndex], this.mainMenu[mainIndex]];
     }
 };
+
+// Desestruturação de objetos
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
+
+// Se eu quiser dar nomes diferentes as variáveis
+const { name: restaurantName,
+    openingHours: hours,
+    categories: tags } = restaurant;
+console.log(restaurantName, hours, tags);
+
+// Outra dica útil é a aplicação de valores padrões para dados de terceiros
+const { menu = [], startMenu: starters = [] } = restaurant;
+console.log(menu, starters);
 
 const arr = [2, 3, 4];
 const a = arr[0];
