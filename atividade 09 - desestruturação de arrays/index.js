@@ -5,7 +5,11 @@ const restaurant = {
     location: "Trindade, GO - Brasil",
     categories: ["Italiana", "Pizzaria", "Vegetarian", "Organic"],
     startMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
-    mainMenu: ["Pizza", "Pasta", "Risotto"]
+    mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+    order: function(startIndex, mainIndex) {
+        return [this.startMenu[startIndex], this.mainMenu[mainIndex]];
+    }
 };
 
 const arr = [2, 3, 4];
@@ -18,7 +22,7 @@ console.log(x, y, z);
 console.log(arr);
 
 // dessa forma eu pulo o segundo valor e "second" passa a ser vegetarian
-const [main, ,secondary] = restaurant.categories;
+let [main, ,secondary] = restaurant.categories;
 console.log(main, secondary);
 
 // Switching variables
@@ -31,3 +35,5 @@ console.log(main, secondary);
 [main, secondary] = [secondary, main];
 console.log(main, secondary);
 
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(`${starter} and ${mainCourse}`);
