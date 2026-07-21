@@ -100,3 +100,9 @@ console.log(p, q, r); // Resultado esperado: 8, 9, undefined;
 // Mas eu posso colocar variáveis com valores fixos
 const [t = 1, u = 1, v = 1] = [3, 5];
 console.log(t, u, v); // Resultado esperado: 3, 5, 1;
+
+// Copiando e adicionando novos itens na array
+
+// Dessa forma está apenas a copiar a array, não estamos alterando diretamente
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
