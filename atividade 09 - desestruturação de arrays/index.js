@@ -25,8 +25,37 @@ const restaurant = {
 
     order: function (startIndex, mainIndex) {
         return [this.startMenu[startIndex], this.mainMenu[mainIndex]];
+    },
+
+    orderDelivery: function ({ 
+        time, 
+        adress, 
+        mainIndex, 
+        starterIndex }) {
+        console.log(
+            `Order received ${this.startMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${adress} at ${time}`
+        );
+    },
+
+    orderPasta: function (ing1, ing2, ing3) {
+        `Here your delicious pasta with ${ing1}, ${ing2} and ${ing3}!`;
     }
 };
+
+restaurant.orderDelivery({
+    time: '22:30',
+    adress: 'Via del Sole, 21',
+    mainIndex: 2,
+    starterIndex: 2
+});
+
+const ingredients = [
+    prompt('Let\'s make your pasta! Ingredient 1: '),
+    prompt('Ingredient 2: '),
+    prompt('Ingredient 3: ')
+];
+
+restaurant.orderPasta(...ingredients);
 
 // Desestruturação de objetos
 // const { name, openingHours, categories } = restaurant;
@@ -106,3 +135,8 @@ console.log(t, u, v); // Resultado esperado: 3, 5, 1;
 // Dessa forma está apenas a copiar a array, não estamos alterando diretamente
 const newMenu = [...restaurant.mainMenu, 'Gnocci'];
 console.log(newMenu);
+
+const str = 'Lukas';
+const arr1 = [...str, ' ', '!'];
+console.log(arr1);
+
