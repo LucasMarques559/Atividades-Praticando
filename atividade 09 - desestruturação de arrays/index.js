@@ -27,10 +27,10 @@ const restaurant = {
         return [this.startMenu[startIndex], this.mainMenu[mainIndex]];
     },
 
-    orderDelivery: function ({ 
-        time, 
-        adress, 
-        mainIndex, 
+    orderDelivery: function ({
+        time,
+        adress,
+        mainIndex,
         starterIndex }) {
         console.log(
             `Order received ${this.startMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${adress} at ${time}`
@@ -56,6 +56,15 @@ const ingredients = [
 ];
 
 restaurant.orderPasta(...ingredients);
+
+// Desestruturação de objeto
+
+const newRestaurant = { ...restaurant, foundIn: 'brócolis' };
+console.log(newRestaurant);
+
+const newRestaurantName = { ...restaurant };
+newRestaurantName.name = 'Salsicha com mel';
+console.log(newRestaurantName);
 
 // Desestruturação de objetos
 // const { name, openingHours, categories } = restaurant;
@@ -139,4 +148,3 @@ console.log(newMenu);
 const str = 'Lukas';
 const arr1 = [...str, ' ', '!'];
 console.log(arr1);
-
