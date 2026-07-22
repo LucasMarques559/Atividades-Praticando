@@ -42,6 +42,15 @@ const restaurant = {
     }
 };
 
+const { sat, ...weekday } = restaurant.openingHours;
+console.log(sat, weekday);
+
+const [focaccia, , , caprese, ...otherFood] = [...restaurant.startMenu, ...restaurant.mainMenu];
+console.log(focaccia, caprese, otherFood);
+
+const [azinho, bzinho, ...others] = [6, 7, 8, 1, 2, 3, 4, 5];
+console.log(azinho, bzinho, others);
+
 restaurant.orderDelivery({
     time: '22:30',
     adress: 'Via del Sole, 21',
@@ -50,11 +59,12 @@ restaurant.orderDelivery({
 });
 
 const ingredients = [
-    prompt('Let\'s make your pasta! Ingredient 1: '),
-    prompt('Ingredient 2: '),
-    prompt('Ingredient 3: ')
+    // prompt('Let\'s make your pasta! Ingredient 1: '),
+    // prompt('Ingredient 2: '),
+    // prompt('Ingredient 3: ')
 ];
 
+console.log(ingredients);
 restaurant.orderPasta(...ingredients);
 
 // Desestruturação de objeto
@@ -148,3 +158,18 @@ console.log(newMenu);
 const str = 'Lukas';
 const arr1 = [...str, ' ', '!'];
 console.log(arr1);
+
+// ----- //
+
+// A lógica aqui: preciso saber a soma de todos os números do atributo da função --- variável inicial 0, percorre todos os números e soma atrelando a variável
+const add = function (...numbers) {
+    let sum = 0;
+    for (let izinho = 0; izinho < numbers.length; izinho++) {
+        sum += numbers[i];
+    }
+    console.log(sum);
+}
+
+add(1, 2);
+add(6, 7, 8, 9, 10);
+add(3, 4, 5);
