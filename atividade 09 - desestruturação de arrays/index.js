@@ -39,6 +39,11 @@ const restaurant = {
 
     orderPasta: function (ing1, ing2, ing3) {
         `Here your delicious pasta with ${ing1}, ${ing2} and ${ing3}!`;
+    },
+
+    orderPizza: function (mainIngredient, ...othersIngredients) {
+        console.log(mainIngredient);
+        console.log(othersIngredients);
     }
 };
 
@@ -64,8 +69,8 @@ const ingredients = [
     // prompt('Ingredient 3: ')
 ];
 
-console.log(ingredients);
 restaurant.orderPasta(...ingredients);
+console.log(ingredients);
 
 // Desestruturação de objeto
 
@@ -173,3 +178,8 @@ const add = function (...numbers) {
 add(1, 2);
 add(6, 7, 8, 9, 10);
 add(3, 4, 5);
+
+const xzinho = [123, 456, 789];
+// ⚠️ Para o lucas do futuro, como faço para atribuir esse valores ao parâmetro da função? ⚠️
+
+restaurant.orderPizza('Carne seca', 'alface', 'tomate', 'melância');
