@@ -183,3 +183,15 @@ const xzinho = [123, 456, 789];
 // ⚠️ Para o lucas do futuro, como faço para atribuir esse valores ao parâmetro da função? ⚠️
 
 restaurant.orderPizza('Carne seca', 'alface', 'tomate', 'melância');
+
+// O poder do || e &&
+
+console.log('----- OR -----');
+restaurant.numGuest = 67;
+const guest1 = restaurant.numGuest ? 10 : 'aperta o balão';
+console.log(guest1);
+
+const guest2 = restaurant.numGuest || 10;
+console.log(guest2);
+
+console.log('----- AND -----');
