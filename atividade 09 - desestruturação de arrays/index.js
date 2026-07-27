@@ -223,4 +223,3 @@ rest2.owner &&= '<SEM DONO>'; // Aqui é pra mudar o nome do owner pra SEM DONO
 console.log(rest1);
 console.log(rest2);
 console.log(rest3);
-
