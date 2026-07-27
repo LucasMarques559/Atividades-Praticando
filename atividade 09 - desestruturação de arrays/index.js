@@ -180,6 +180,7 @@ add(6, 7, 8, 9, 10);
 add(3, 4, 5);
 
 const xzinho = [123, 456, 789];
+add(...xzinho);
 // ⚠️ Para o lucas do futuro, como faço para atribuir esse valores ao parâmetro da função? ⚠️
 
 restaurant.orderPizza('Carne seca', 'alface', 'tomate', 'melância');
@@ -195,3 +196,8 @@ const guest2 = restaurant.numGuest || 10;
 console.log(guest2);
 
 console.log('----- AND -----');
+
+// Nullish, este método trabalha com valores nulos
+
+const convidados = 0
+console.log(convidados ?? 10);
