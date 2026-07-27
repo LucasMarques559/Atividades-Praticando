@@ -197,7 +197,30 @@ console.log(guest2);
 
 console.log('----- AND -----');
 
-// Nullish, este método trabalha com valores nulos
+const rest1 = {
+    name: 'Lo Pizzaiolo',
+    convidados: 200
+}
 
-const convidados = 0
-console.log(convidados ?? 10);
+const rest2 = {
+    name: 'Salsa Valla',
+    owner: 'Ledson'
+}
+
+const rest3 = {
+    name: 'Surinami',
+    convidados: 0
+}
+
+rest1.convidados = rest1.convidados || 10;
+rest2.convidados ||= 10;
+
+rest3.convidados ??= 10;
+
+rest1.owner = rest1.owner && '<SEM DONO>'; // undefined pois a propriedade owner não existe nesse objeto
+rest2.owner &&= '<SEM DONO>'; // Aqui é pra mudar o nome do owner pra SEM DONO
+
+console.log(rest1);
+console.log(rest2);
+console.log(rest3);
+
