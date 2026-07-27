@@ -41,6 +41,14 @@ const game = {
             'Gotze',
         ],
     ],
+    score: '4:0',
+    score: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+    date: 'Nov 9th, 2037',
+    odds: {
+        team1: 1.33,
+        x: 3.25,
+        team2: 6.5,
+    },
 };
 
 // Eu tenho a variável players que são duas arrays dentro de uma, sendo assim eu desestruturei as duas e atribui uma variável a elas
