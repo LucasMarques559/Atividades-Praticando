@@ -42,7 +42,7 @@ const game = {
         ],
     ],
     score: '4:0',
-    score: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+    scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
     date: 'Nov 9th, 2037',
     odds: {
         team1: 1.33,
@@ -57,8 +57,7 @@ const [players1, players2] = game.players;
 // Criação de uma variável para o goleiro e uma array para o restante dos jogadores
 const [gk, ...fieldPlayers] = players1;
 const [gk2, ...fieldPlayers2] = players2;
-console.log(players1);
-console.log(players2);
+console.log(players1, players2);
 
 // Criação de uma array contendo todos os jogadores
 const allPlayers = [...players1, ...players2];
@@ -66,3 +65,20 @@ console.log(allPlayers);
 
 const players1Final = [...players1, 'Thiago Silva', 'Coutinho', 'Perisic'];
 console.log(players1Final);
+
+// const { odds: {
+//     team1,
+//     x: draw,
+//     team2
+// } } = game;
+const { team1, x: draw, team2 } = game.odds;
+console.log(team1, draw, team2);
+
+const printGoals = (...playersScore) => {
+    console.log(playersScore);
+    console.log(`${playersScore.length} goals were scored!`);
+}
+
+printGoals('Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels');
+
+team1 > team2 && console.log('Team 1 tem mais chances de vencer!');
