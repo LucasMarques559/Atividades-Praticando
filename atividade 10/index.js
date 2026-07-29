@@ -14,19 +14,24 @@ const restaurant = {
             close: 22
         },
 
-        [weekdays[[4]]]: {
+        [weekdays[4]]: {
             open: 11,
             close: 23
         },
 
-        [`day-${2 + 4}`]: {
+        [weekdays[5]]: {
+            open: 10,
+            close: 22
+        },
+
+        [weekdays[6]]: {
             open: 0,
-            close: 24 // 24 Horas aberto
+            close: 12 + 12 // 24 Horas aberto
         }
     },
 
     order: function (startIndex, mainIndex) {
-        return [this.startMenu[startIndex], this.mainMenu[mainIndex]];
+        return [this.starterMenu[startIndex], this.mainMenu[mainIndex]];
     },
 
     orderDelivery: function ({
@@ -67,3 +72,17 @@ for (const [i, el] of menu.entries()) {
 
 // Melhorias do ES6
 // -> Se eu quero incluir as propriedades de um objeto dentro do outro, é só eu escrever o nome do objeto desejado dentro do outro
+
+console.log(restaurant.openingHours?.sat?.open);
+console.log(restaurant.openingHours?.fri?.open);
+
+for (const day of weekdays) {
+    const open = restaurant.openingHours[day]?.open ?? 'closed';
+    console.log(`In the ${day} we open at ${open}`);
+}
+
+console.log(restaurant.order?.(2, 1) ?? 'This method doesnt exist!');
+console.log(restaurant.briguitis?.(0, 1) ?? 'This method doesnt exist!');
+
+const users = [{ name: 'lukas', email: 'lukitos@gmail.com', age: 20 }];
+console.log(users[0]?.name ?? 'User array empty');
