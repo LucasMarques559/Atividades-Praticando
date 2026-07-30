@@ -87,6 +87,7 @@ console.log(restaurant.briguitis?.(0, 1) ?? 'This method doesnt exist!');
 const users = [{ name: 'lukas', email: 'lukitos@gmail.com', age: 20 }];
 console.log(users[0]?.name ?? 'User array empty');
 
+// OBJECT.KEYS
 const properties = Object.keys(restaurant.openingHours);
 console.log(properties);
 
@@ -98,3 +99,11 @@ for (const day of properties) {
 
 console.log(openStr);
 
+// OBJECT.ENTRIES
+
+const entries = Object.entries(restaurant.openingHours);
+console.log(entries);
+
+for (const [day, { open, close }] of entries) {
+    console.log(`We open in the ${day} at ${open} and close at ${close}`);
+}   
