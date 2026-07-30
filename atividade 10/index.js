@@ -1,6 +1,6 @@
 'use strict';
 
-const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const weekdays = [' Monday', ' Tuesday', ' Wednesday', ' Thursday', ' Friday', ' Saturday', ' Sunday'];
 
 const restaurant = {
     name: "Briguiras Restaurant",
@@ -86,3 +86,15 @@ console.log(restaurant.briguitis?.(0, 1) ?? 'This method doesnt exist!');
 
 const users = [{ name: 'lukas', email: 'lukitos@gmail.com', age: 20 }];
 console.log(users[0]?.name ?? 'User array empty');
+
+const properties = Object.keys(restaurant.openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+
+for (const day of properties) {
+    openStr += `${day},`;
+}
+
+console.log(openStr);
+

@@ -82,3 +82,4 @@ const printGoals = (...playersScore) => {
 printGoals('Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels');
 
 team1 > team2 && console.log('Team 1 tem mais chances de vencer!');
+team1 < team2 && console.log('Team 2 tem mais chances de vencer!');
