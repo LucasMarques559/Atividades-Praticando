@@ -111,3 +111,15 @@ GOOD LUCK 😀
 for (const [i, player] of game.scored.entries()) {
     console.log(`Goal ` + [i + 1] + `, scored by ${player}!`);
 }
+
+const oddValues = Object.values(game.odds);
+console.log(oddValues);
+
+let sum = null;
+let media = false;
+for (const e of oddValues) {
+    sum += e;
+    media += sum / oddValues.length;
+}
+
+console.log(media);
