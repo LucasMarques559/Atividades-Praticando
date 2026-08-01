@@ -122,4 +122,11 @@ for (const e of oddValues) {
     media += sum / oddValues.length;
 }
 
-console.log(media);
+console.log(media.toFixed(2));
+
+let teamStr = '';
+for (const [team, odd] of Object.entries(game.odds)) {
+    teamStr += team === 'x' ? 'Draw' : `Odd of victory ${game[team]}`;
+}
+
+console.log(teamStr);
