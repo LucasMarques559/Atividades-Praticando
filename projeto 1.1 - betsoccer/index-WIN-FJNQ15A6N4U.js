@@ -105,24 +105,9 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 GOOD LUCK 😀
 */
 
-// const entries = Object.entries(game.scored);
-// console.log(entries);
+const values = Object.values(game.scored);
+console.log(values);
 
-for (const [goal, player] of game.scored.entries()) {
-    console.log(`Goal ${+goal + 1} scored by ${player}`);
-}
+for (const player of values) {
 
-const oddValues = Object.values(game.odds);
-console.log(oddValues);
-
-let sum = false;
-for (const e of oddValues) {
-    sum += e;
-}
-
-console.log(sum / oddValues.length);
-
-for (const [team, odd] of Object.entries(game.odds)) {
-    const teamStr = team === "x" ? "Draw" : `Victory ${game[team]}`;
-    console.log(`Odd of ${teamStr}: ${odd}`);
 }
