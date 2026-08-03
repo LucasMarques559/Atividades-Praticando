@@ -19,3 +19,8 @@ console.log(saborPizza.size);
 for (const sabores of saborPizza) {
     console.log(sabores);
 }
+
+const funCozinha = ['Chefe', 'Chefe', 'Garçom', 'Garçom', 'Garçom', 'Manager'];
+
+const funCozinhaSet = [...new Set(funCozinha)];
+console.log(funCozinhaSet);
