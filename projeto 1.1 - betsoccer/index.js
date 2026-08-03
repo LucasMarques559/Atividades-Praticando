@@ -123,6 +123,6 @@ for (const e of oddValues) {
 console.log(sum / oddValues.length);
 
 for (const [team, odd] of Object.entries(game.odds)) {
-    const teamStr = team === "x" ? "Draw" : `Victory ${game[team]}`;
-    console.log(`Odd of ${teamStr}: ${odd}`);
+    const teamStr = team === "x" ? "Draw" : `Victory of ${game[team]}`;
+    console.log(teamStr, odd);
 }
