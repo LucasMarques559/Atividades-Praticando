@@ -81,3 +81,22 @@ console.log(map.get(true));
 console.log(map.get(1));
 console.log(map.get('name'));
 
+const time = 20;
+console.log(map.get(time > map.get('open') && time < map.get('close')));
+
+// Os mesmos métodos do conjunto
+
+// console.log(map.has('name'));
+// map.delete(2);
+// console.log(map);
+// map.clear();
+// console.log(map.size);
+
+const arr = [6, 7];
+
+map.set(arr, 'Test67');
+console.log(map.get(arr));
+map.set([1, 2], 'Test');
+console.log(map.get([1, 2]));
+map.set(document.querySelector('h1'), 'Heading');
+console.log(map);
