@@ -60,3 +60,24 @@ console.log('Tem no mexicano mas não tem no italiano:', [...differenceOfMexican
 
 //symmetricDifference
 //isDisjoinFrom
+
+// Mapas - muito mais útil do que conjuntos e é totalmente diferente do que usamos na vida real
+
+const map = new Map();
+map.set('name', 'miojin restaurant');
+map.set(1, 'Italy, Milan');
+map.set(2, 'Lisboa, Portugal');
+
+console.log(map);
+
+map.set('categories', ['arroz', 'salada', 'pão', 'pique'])
+    .set('open', 9)
+    .set('close', 23)
+    .set(true, 'We are open :D')
+    .set(false, 'we are close :(');
+
+console.log(map);
+console.log(map.get(true));
+console.log(map.get(1));
+console.log(map.get('name'));
+
