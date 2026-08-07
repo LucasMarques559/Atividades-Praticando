@@ -1,5 +1,12 @@
 'use strict';
 
+const profile = {
+    name: 'Lukas Marques',
+    age: 20,
+    height: 1.72,
+    weight: 60
+}
+
 // Em um CONJUNTO não há índices e nem palavras repetidas
 const saborPizza = new Set([
     'Uva Passa',
@@ -100,3 +107,35 @@ map.set([1, 2], 'Test');
 console.log(map.get([1, 2]));
 map.set(document.querySelector('h1'), 'Heading');
 console.log(map);
+
+// arr in maps
+// Em mapas e conjuntos, o primeiro é a key e o segundo é o valor
+const map2 = new Map([
+    ['question', 'Qual a melhor linguagem de programação do mundo?\n'],
+    [1, 'php\n'],
+    [2, 'Python\n'],
+    [3, 'Java\n'],
+    [4, 'JavaScript\n'],
+    ['corretAnswer', 4],
+    [true, 'Correct 😍\n'],
+    [false, 'Try again...\n']
+]);
+
+console.log(map2);
+
+// Transformando objetos em mapas
+const profileMap = Object.entries(profile);
+console.log(profileMap);
+
+console.log(map2.get('question'));
+for (const [key, value] of map2) {
+    if (typeof key === 'number') {
+        console.log(`answers ${key}: ${value}\n`);
+    }
+}
+
+const userAnswer = Number(prompt('Type here your answer'));
+
+// userAnswer === 4 ? console.log(map2.get(true)) : console.log(map2.get(false));
+// comparo a resposta certa com a respota do usuário
+console.log(map2.get(map2.get('corretAnswer') === userAnswer));
