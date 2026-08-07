@@ -20,7 +20,3 @@ console.log(friends.indexOf("Lucas"));
 
 //a função includes retorna true or false se o elemente está na array
 console.log(friends.includes("Lukas"));
-
-function calcTip() {
-    
-}
