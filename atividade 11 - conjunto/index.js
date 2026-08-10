@@ -134,14 +134,34 @@ for (const [key, value] of map2) {
     }
 }
 
-const userAnswer = Number(prompt('Type here your answer'));
+// const userAnswer = Number(prompt('Type here your answer'));
 
 // userAnswer === 4 ? console.log(map2.get(true)) : console.log(map2.get(false));
 // comparo a resposta certa com a respota do usuário
-console.log(map2.get(map2.get('corretAnswer') === userAnswer));
+// console.log(map2.get(map2.get('corretAnswer') === userAnswer));
 
 // traduzindo a lógica de cima, ele compara 3 === resposta do usuário, essa operação retorna um valor boolean true or false
 // novamente ele usa o método get e puxa dentro das arrays qual tem o valor devido true or false
 
 // tem como converter maps para objetos tbm, mas eu to com preguiça de escrever aqui e vou deixar para o Lucas do futuro se virar e descobrir como faz
 // :P
+
+// STRINGS
+
+const aviacao = 'Tap Air Portugal';
+const airline = 'Mel na chupeta';
+
+console.log(aviacao.indexOf('A'));
+console.log(aviacao.lastIndexOf('a'));
+
+console.log(aviacao.slice(0, 5));
+
+function aviao(seat) {
+    // Se o assentos forem A e F, é na janela
+    const s = seat.slice(-1);
+    s === 'A' || s === 'F' ? console.log('Você conseguiu um assento na janela!') : console.log('Mais sorte da próxima vez :P');
+}
+
+aviao('123B');
+aviao('67F');
+aviao('800A');
