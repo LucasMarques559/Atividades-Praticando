@@ -165,3 +165,40 @@ function aviao(seat) {
 aviao('123B');
 aviao('67F');
 aviao('800A');
+
+console.log('meu+nome+é+Lucas'.split('+'));
+console.log('Lucas Marques'.split(' '));
+
+const [firstName, lastName] = 'Lucas Marques'.split(' ');
+
+const newName = ['Sr(a)', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+function capitalizedName(name) {
+    const names = name.split(' ');
+    const namesUpper = [];
+
+    for (const word of names) {
+        namesUpper.push(word[0].toUpperCase() + word.slice(1));
+    }
+
+    console.log(namesUpper.join(' '));
+}
+
+capitalizedName('manuel gomes la ele');
+capitalizedName('lukas marques');
+
+console.log('Certificado Digital de Conclusão de Curso'.padStart(45, '+').padEnd(50, '='));
+
+function creditoAnonimo(numberCard) {
+    const str = numberCard + '';
+    const last = str.slice(-4);
+
+    return last.padStart(last.length, '*');
+}
+
+console.log(creditoAnonimo(12345678));
+console.log(creditoAnonimo('987654323323332'));
+console.log(creditoAnonimo(67676767676767));
+
+// método repeat
