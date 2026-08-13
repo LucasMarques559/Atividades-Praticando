@@ -202,3 +202,60 @@ console.log(creditoAnonimo('987654323323332'));
 console.log(creditoAnonimo(67676767676767));
 
 // método repeat
+
+const passageiro = 'mandioca';
+const passageiroCorreto = passageiro.toLowerCase();
+const passageiro_final = passageiroCorreto[0].toUpperCase() + passageiroCorreto.slice(1);
+
+console.log(passageiro_final);
+
+const email = 'lukas@email.com';
+const login = ' LuKaS@emaiL.CoM \n';
+
+const correctEmail = login.toLowerCase().trim(); // trim = tirar os espaços
+console.log(correctEmail);
+
+console.log(correctEmail === email);
+
+// Replace
+const price = '277,98€';
+const priceUS = price.replace('€', '$').replace(',', '.');
+console.log(priceUS);
+
+const anuncio = 'Por favor senhores passageiros se digiriam a porta 23, porta de embarque';
+
+console.log(anuncio.replace('porta', 'gate'));
+console.log(anuncio.replaceAll('porta', 'gate'));
+
+const aviao2 = 'A234zx';
+console.log(aviao2.includes('A234'));
+console.log(aviao2.startsWith('A2'));
+
+function despachoAviacao(items) {
+    const baggage = items.toLowerCase();
+
+    if (baggage.includes('faca') || baggage.includes('arma')) {
+        console.log('Por favor diriga-se a centro de defesa civil >:(');
+    } else {
+        console.log('Bem vindo a bordo! XD');
+    }
+}
+
+despachoAviacao('Eu tenho uma Faca e um caderno na minha mala');
+despachoAviacao('Eu tenho uma câmera');
+despachoAviacao('Eu trouxe uma arMa para defesa pessoal');
+
+const listaVerstappen = new Set([
+    'ovo',
+    'pao',
+    'vinagre',
+    'sal'
+]);
+
+const listaNorris = new Set([
+    'bolo',
+    'ovo',
+    'sal',
+    'nutella'
+]);
+
