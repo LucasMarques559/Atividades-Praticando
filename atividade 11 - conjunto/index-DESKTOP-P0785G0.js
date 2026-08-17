@@ -166,43 +166,6 @@ aviao('123B');
 aviao('67F');
 aviao('800A');
 
-console.log('meu+nome+é+Lucas'.split('+'));
-console.log('Lucas Marques'.split(' '));
-
-const [firstName, lastName] = 'Lucas Marques'.split(' ');
-
-const newName = ['Sr(a)', firstName, lastName.toUpperCase()].join(' ');
-console.log(newName);
-
-function capitalizedName(name) {
-    const names = name.split(' ');
-    const namesUpper = [];
-
-    for (const word of names) {
-        namesUpper.push(word[0].toUpperCase() + word.slice(1));
-    }
-
-    console.log(namesUpper.join(' '));
-}
-
-capitalizedName('manuel gomes la ele');
-capitalizedName('lukas marques');
-
-console.log('Certificado Digital de Conclusão de Curso'.padStart(45, '+').padEnd(50, '='));
-
-function creditoAnonimo(numberCard) {
-    const str = numberCard + '';
-    const last = str.slice(-4);
-
-    return last.padStart(last.length, '*');
-}
-
-console.log(creditoAnonimo(12345678));
-console.log(creditoAnonimo('987654323323332'));
-console.log(creditoAnonimo(67676767676767));
-
-// método repeat
-
 const passageiro = 'mandioca';
 const passageiroCorreto = passageiro.toLowerCase();
 const passageiro_final = passageiroCorreto[0].toUpperCase() + passageiroCorreto.slice(1);
@@ -244,40 +207,3 @@ function despachoAviacao(items) {
 despachoAviacao('Eu tenho uma Faca e um caderno na minha mala');
 despachoAviacao('Eu tenho uma câmera');
 despachoAviacao('Eu trouxe uma arMa para defesa pessoal');
-
-const listaVerstappen = new Set([
-    'ovo',
-    'pao',
-    'vinagre',
-    'sal'
-]);
-
-const listaNorris = new Set([
-    'bolo',
-    'ovo',
-    'sal',
-    'nutella'
-]);
-
-// Exercicies with strings
-
-const flights =
-    '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
-// 🔴 Delayed Departure from FAO to TXL (11h25)
-//              Arrival from BRU to FAO (11h45)
-//   🔴 Delayed Arrival from HEL to FAO (12h05)
-//            Departure from FAO to LIS (12h30)
-
-const getCode = str => str.slice(0, 3).toUpperCase();
-
-for (const tickets of flights.split('+')) {
-    const [type, from, to, time] = tickets.split(';');
-    const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll('_', ' ')}
-from ${getCode(from)}
-to ${getCode(to)}
-${time.replace(':', 'h')}`;
-
-    console.log(output);
-}
-
