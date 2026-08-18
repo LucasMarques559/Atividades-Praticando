@@ -52,3 +52,21 @@ function newPassport(object) {
 newPassport(lukas);
 checkIn('LS199', lukas); // erro
 
+function oneWord(str) {
+    return str.replace(/ /g, '');
+}
+
+function upperFirstWord(str) {
+    const [first, ...others] = str.split(' ');
+    return [first.toUpperCase(), ...others].join(' ');
+}
+
+// Higher-order function = recebe outra função como parâmetro
+function transformer(str, fnc) {
+    console.log(`Original string: ${str}`);
+    console.log(`Transformed string: ${fnc(str)}`);
+    console.log(`Transformed by: ${fnc.name}`);
+}
+
+transformer('JavaScript is the best language', upperFirstWord);
+transformer('JavaScript is the best language', oneWord);
