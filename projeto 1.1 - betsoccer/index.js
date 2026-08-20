@@ -101,8 +101,6 @@ BONUS: Create an object called 'scorers' which contains the names of the players
         Hummels: 1,
         Lewandowski: 2
       }
-
-GOOD LUCK 😀
 */
 
 // const entries = Object.entries(game.scored);

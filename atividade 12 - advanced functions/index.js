@@ -30,9 +30,9 @@ function checkIn(flightNum, passenger) {
     passenger.name = 'Sr(a)' + passenger.name;
 
     if (passenger.passport === 1234578) {
-        alert('Check-In');
+        // alert('Check-In');
     } else {
-        alert('Wrong Passport');
+        // alert('Wrong Passport');
     }
 }
 
@@ -70,3 +70,32 @@ function transformer(str, fnc) {
 
 transformer('JavaScript is the best language', upperFirstWord);
 transformer('JavaScript is the best language', oneWord);
+
+const high5 = function() {
+    console.log('✋');
+}
+
+document.body.addEventListener('click', high5);
+['Nomes', 'Aleatórios', 'Mutex', 'Rosa'].forEach(high5);
+
+function greet(str) {
+    return function (name) {
+        console.log(str + " " + name);
+    }
+}
+
+const greeting = greet('oie');
+greeting('Lukas');
+greeting('Erik');
+greeting('Pedro');
+
+const greet2 = (str) => {
+    return (name) => {
+        console.log(`${str} ${name}`);
+    }
+}
+
+const greeting2 = greet2('Salve');
+greeting2('Lukinha');
+greeting2('Du');
+greeting2('Joãozinho');
