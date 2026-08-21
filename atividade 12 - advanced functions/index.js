@@ -71,7 +71,7 @@ function transformer(str, fnc) {
 transformer('JavaScript is the best language', upperFirstWord);
 transformer('JavaScript is the best language', oneWord);
 
-const high5 = function() {
+const high5 = function () {
     console.log('✋');
 }
 
@@ -89,13 +89,71 @@ greeting('Lukas');
 greeting('Erik');
 greeting('Pedro');
 
-const greet2 = (str) => {
-    return (name) => {
-        console.log(`${str} ${name}`);
-    }
+// const greet2 = (str) => {
+//     return (name) => {
+//         console.log(`${str} ${name}`);
+//     }
+// }
+
+// const greeting2 = greet2('Salve');
+// greeting2('Lukinha');
+// greeting2('Du');
+// greeting2('Joãozinho');
+
+// greet2('saaalve galera do')('youtube');
+
+const greetArr = str => name => console.log(str + " " + name);
+greetArr('Yoh')('Fin');
+
+const lufthansa = {
+    airline: 'Lufthansa',
+    iataCode: 'LH',
+    bookings: [],
+    // book function() {}
+    book(flightNum, name) {
+        console.log(`${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+        this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name})
+    },
+};
+
+lufthansa.book(676, 'Lukas Marques');
+lufthansa.book(123, 'Merlin Grey');
+console.log(lufthansa);
+
+const eurowings = {
+    airline: 'Eurowings',
+    iataCode: 'EW23',
+    bookings: [],
+
+};
+
+// Armazenei uma função de um objeto em uma variável global
+// Uma cópia da função mas não é o mesmo, é apenas uma chamada de função regular
+// NÃO UM MÉTODO
+const book = lufthansa.book;
+
+// quando eu realizo esse tipo de cópia, o método this fica uma bagunça e não sabe pra onde apontar quando eu chamo ele
+// dessa forma exitem 3 métodos para que possamos definir para qual airline estamos nos referindo
+
+// Método call
+book.call(eurowings, 123, 'Nico Willians');
+book.call(lufthansa, 906, 'Daniel Molo');
+console.log(eurowings);
+
+// Lembrando, funções são objetos e objetos tem seu métodos, então é totalmente comum chamar uma função com um método function.method()
+
+const swiss = {
+    airline: 'Swiss Air Lines',
+    iataCode: 'LX',
+    bookings: []
 }
 
-const greeting2 = greet2('Salve');
-greeting2('Lukinha');
-greeting2('Du');
-greeting2('Joãozinho');
+book.call(swiss, 738, 'Mary Jane');
+console.log(swiss);
+
+// Apply method
+const flightData = [583, 'Patrick Jane'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+book.call(swiss, ...flightData);
