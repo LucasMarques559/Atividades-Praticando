@@ -122,7 +122,7 @@ console.log(lufthansa);
 
 const eurowings = {
     airline: 'Eurowings',
-    iataCode: 'EW23',
+    iataCode: 'EW',
     bookings: [],
 
 };
@@ -157,3 +157,16 @@ book.apply(swiss, flightData);
 console.log(swiss);
 
 book.call(swiss, ...flightData);
+
+// Mais uma vez: quando eu chamo a variável que armazena a função do objeto, NÃO ESTOU CHAMANDO A FUNÇÃO !
+// Se eu armazenar essa variável em outra variável, aí sim da certo...
+const bookWE = book.bind(eurowings);
+const bookLT = book.bind(lufthansa);
+const bookSS = book.bind(swiss);
+
+bookWE(29, 'seila');
+
+// Há uma forma de definir o valor do parâmetro fixo
+const bookWE23 = book.bind(eurowings, 23); // aqui eu defini que é sempre o número 23
+bookWE23('Lukas Marques');
+
