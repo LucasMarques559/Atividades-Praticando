@@ -187,3 +187,77 @@ console.log(addTax(0.1, 200))
 const addVAT = addTax.bind(null, 0.23);
 // addVAT = value => value + value * 0.23;
 
+// IIFE Imediatly Invoked Functions Express
+// Funções que serão executadas apenas uma vez
+
+(function() {
+    console.log('Fala galerinha do youtube, tudo beleza? :D');
+    const privateNumber = 1001;
+});
+
+// console.log(privateNumber); // error
+
+{
+    let privateNumber = 919;
+    var publicNumber = 123;
+}
+
+// console.log(privateNumber); // error
+console.log(publicNumber);
+
+function secureBooking() {
+    let passengerCount = 0;
+
+    return function() {
+        passengerCount++;
+        console.log(`Passengers ${passengerCount}`);
+    }
+}
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
+
+let f;
+
+function g() {
+    const a = 23;
+    f = function() {
+        console.log(a * 2);
+    }
+}
+
+function x() {
+    const b = 123;
+    f = function() {
+        console.log(b / 2);
+    }
+}
+
+g();
+f();
+console.dir(f);
+
+// Re-assigning (reatribuindo)
+x();
+f();
+console.dir(f);
+
+function embarqueDePassageiros(n, wait) {
+    const perGroup = n / 3;
+
+    // Essa função é executada no escopo global, uma global callback function
+    setTimeout(function() {
+        console.log(`Iremos embarcar agora um total de ${n} passageiros`);
+        console.log(`Iremos separá-los em grupos, 3 em cada. Total de ${perGroup} grupos de 3!`);
+    }, wait * 1000);
+
+    console.log(`Nós iremos começar nosso embarque em ${wait} segundos`);
+}
+
+embarqueDePassageiros(120, 10);
+
