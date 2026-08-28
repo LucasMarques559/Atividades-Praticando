@@ -65,12 +65,6 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
 /////////////////////////////////////////////////
 
 // Slice method - dont change the arr
@@ -135,3 +129,20 @@ movements.forEach(function (mov, i, arr) {
   }
 });
 
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function(value, key, arr) {
+  console.log(`${key}: ${value}`);
+});
+
+const conjunto = new Set(['EUR', 'USD', 'BRL', 'EUR', 'USD', 'BRL']);
+
+// em um conjunto (sets) não há índice, valor ou etc, por isso o segundo parâmetro (key) é inutil
+// utiliza-se _ para definir que uma variável é inutilizavel
+conjunto.forEach(function(value, _, arr) {
+  console.log(`${value}: ${value}`);
+});
