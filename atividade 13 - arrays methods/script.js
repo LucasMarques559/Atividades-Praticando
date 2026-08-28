@@ -71,8 +71,6 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 /////////////////////////////////////////////////
 
 // Slice method - dont change the arr
@@ -102,3 +100,38 @@ console.log([...arr, ...arr3]);
 
 // JOIN
 console.log(arr.join(' - '));
+
+// At method
+const array = [11, 67, 20];
+
+console.log(array.at(0));
+console.log(array.at(-1));
+console.log('lukas'.at(0));
+console.log('lukas'.at(-1));
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// relembrando que entries() é para obter as chaves e os valores de uma lista, array, map etc
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: deposit made in the amount of ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: withdrew made in the amount of ${Math.abs(movement)}`);
+  }
+}
+
+console.log('---- forEach ----');
+// Loop forEach - Para cada
+
+// O loop irá percorrer toda a array e cada valor que ele percorrer, irá repassar como argumento para a callback function
+// no loop for, não precisa usar entries, só passar os parâmetros
+// a ordem sempre é: valor, índice, array completo
+
+movements.forEach(function (mov, i, arr) {
+  if (mov > 0) {
+    console.log(`Movement ${i + 1}: deposit made in the amount of ${mov}`);
+  } else {
+    console.log(`Movement ${i + 1}: withdrew made in the amount of ${Math.abs(mov)}`);
+  }
+});
+
