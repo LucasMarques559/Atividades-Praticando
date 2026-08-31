@@ -45,7 +45,6 @@ const labelSumInterest = document.querySelector('.summary__value--interest');
 const labelTimer = document.querySelector('.timer');
 
 const containerApp = document.querySelector('.app');
-const containerMovements = document.querySelector('.movements');
 
 const btnLogin = document.querySelector('.login__btn');
 const btnTransfer = document.querySelector('.form__btn--transfer');
@@ -135,7 +134,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-currencies.forEach(function(value, key, arr) {
+currencies.forEach(function (value, key, arr) {
   console.log(`${key}: ${value}`);
 });
 
@@ -143,6 +142,26 @@ const conjunto = new Set(['EUR', 'USD', 'BRL', 'EUR', 'USD', 'BRL']);
 
 // em um conjunto (sets) não há índice, valor ou etc, por isso o segundo parâmetro (key) é inutil
 // utiliza-se _ para definir que uma variável é inutilizavel
-conjunto.forEach(function(value, _, arr) {
+conjunto.forEach(function (value, _, arr) {
   console.log(`${value}: ${value}`);
 });
+
+const containerMovements = document.querySelector('.movements');
+
+function displayMovements(movements) {
+  containerMovements.innerHTML = '';
+  // .textContent = 0;
+
+  movements.forEach(function (mov, i) {
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+    const html = `<div class="movements__row">
+                <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+                <div class="movements__value">${mov}</div>
+            </div>`;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
+displayMovements(account1.movements);
