@@ -193,6 +193,7 @@ function checkDogs(dogsJulia, dogsKate) {
 
   const correctAgeDogs = [...realDogsJulia, ...dogsKate];
   console.log(correctAgeDogs);
+  // .concat()
 
   correctAgeDogs.forEach(function (value, i) {
     if (value >= 3) {
@@ -204,3 +205,35 @@ function checkDogs(dogsJulia, dogsKate) {
 };
 
 checkDogs([...dogsJulia], dogsKate);
+
+// 3 métodos importantes em arrays para a transformação de dados
+// map, filter, reduce
+// criar novas arrays com base na filtragem de dados de outras arrays
+
+// map, faz o mesmo que o forEach, entretanto, cria uma array nova
+// filter, é como um for só que com um if imbutido
+// reduce, tipo uma bola de neve que com o tempo de acumula
+
+const movements2 = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const movToUSD = movements2.map(function (value) {
+  return value * 1.1;
+});
+
+// const movToUSD = movements2.map(value => {
+//   return value * 1.1;
+// });
+console.log(movements2);
+console.log(movToUSD);
+
+// Se eu fizesse com for of
+const newArrEmpty = [];
+for (const mov of movements2) {
+  newArrEmpty.push(mov * 1.1);
+}
+console.log(newArrEmpty);
+
+const movBanch = movements2.map((value, i) => {
+  return `Movement number ${i + 1}: ${value > 0 ? 'deposit' : 'withdrawal'} made in the amount of ${Math.abs(value)}`;
+});
+console.log(movBanch);
