@@ -195,7 +195,11 @@ function checkDogs(dogsJulia, dogsKate) {
   console.log(correctAgeDogs);
 
   correctAgeDogs.forEach(function (value, i) {
-
+    if (value >= 3) {
+      console.log(`Dog number ${i + 1} its old`);
+    } else {
+      console.log(`Dog number ${i + 1} its puppy!`);
+    }
   });
 };
 
