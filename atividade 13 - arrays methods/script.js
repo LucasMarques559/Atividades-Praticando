@@ -237,3 +237,20 @@ const movBanch = movements2.map((value, i) => {
   return `Movement number ${i + 1}: ${value > 0 ? 'deposit' : 'withdrawal'} made in the amount of ${Math.abs(value)}`;
 });
 console.log(movBanch);
+
+// function createUsername(user) {
+//   const username = user.toLowerCase().split(' ').map(name => name[0]).join('');
+//   return username;
+// }
+
+// console.log(createUsername('Steven Thomas Williams'));
+
+function createUsername(accs) {
+  accs.forEach(acc => {
+    acc.username = acc.owner.toLowerCase().split(' ').map(name => name[0]).join('');
+  });
+
+};
+
+createUsername(accounts);
+console.log(accounts);
