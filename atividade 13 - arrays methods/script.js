@@ -254,3 +254,40 @@ function createUsername(accs) {
 
 createUsername(accounts);
 console.log(accounts);
+
+// Método filter
+
+const filtagremDeTransacoes = movements.filter(mov => {
+  return mov > 0;
+});
+console.log(filtagremDeTransacoes);
+
+// feito com for of
+const newArrMovements = [];
+for (const mov of movements) {
+  if (mov > 0) {
+    newArrMovements.push(mov);
+  }
+}
+console.log(newArrMovements);
+
+const negativeMovs = movements.filter(movValues => movValues < 0);
+console.log(negativeMovs);
+
+// reduce method
+
+// neste método, os parâmetros funcionam assim: 1° acumulador (acc) 2° valor atual (value) 3° índice (i) 4° array inteira (arr)
+// const balance = movements.reduce((acc, value, i, arr) => {
+//   console.log(`Iteration number ${i}: ${acc}`);
+//   return acc + value;
+// }, 0);
+// console.log(balance);
+
+const balance = movements.reduce((acc, value) => acc + value, 0);
+console.log(balance);
+
+let sum = 0;
+for (const mov of movements) {
+  sum += mov;
+}
+console.log(sum)
