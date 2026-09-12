@@ -308,5 +308,6 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 function calcAverageHumanAge(ages) {
   const humanAge = ages.map(age => age <= 2 ? 2 * age : 16 + age * 4);
-  const oldDogs = ages.filter();
+  const oldDogs = humanAge.filter(age => age >= 18);
+
 }
