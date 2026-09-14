@@ -283,8 +283,23 @@ console.log(negativeMovs);
 // }, 0);
 // console.log(balance);
 
-const balance = movements.reduce((acc, value) => acc + value, 0);
-console.log(balance);
+function calcDisplayBalance(movements) {
+  const balance = movements.reduce((acc, value) => acc + value, 0);
+  labelBalance.textContent = `${balance}€`;
+};
+calcDisplayBalance(account1.movements);
+
+function calcDisplaySummary(mov) {
+  const incomes = mov.filter(mov => mov > 0).reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const out = mov.filter(mov => mov < 0).reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  const interest = mov.filter(mov => mov > 0).map(deposit => (deposit * 1.2 / 100).reduce((acc, int) => acc + int, 0));
+  labelSumInterest.textContent = `${interest}€`;
+};
+calcDisplaySummary(account1.movements);
 
 let sum = 0;
 for (const mov of movements) {
@@ -317,3 +332,15 @@ function calcAverageHumanAge(ages) {
 
 console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
 console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+
+// Podemos chamar vários métodos em uma única linha, só podemos encadear um método atrás do outro, se o anterior retornar uma array
+// PIPELINE
+const eurToUSD = 1.1;
+const totalMovementsInUSD = movements
+  .filter(mov => mov > 0)
+  .map((mov, i, arr) => {
+    console.log(arr);
+    return mov * eurToUSD
+  })
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(totalMovementsInUSD);
