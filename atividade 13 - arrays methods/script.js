@@ -290,13 +290,19 @@ function calcDisplayBalance(movements) {
 calcDisplayBalance(account1.movements);
 
 function calcDisplaySummary(mov) {
-  const incomes = mov.filter(mov => mov > 0).reduce((acc, mov) => acc + mov, 0);
+  const incomes = mov.filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}€`;
 
-  const out = mov.filter(mov => mov < 0).reduce((acc, mov) => acc + mov, 0);
+  const out = mov.filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(out)}€`;
 
-  const interest = mov.filter(mov => mov > 0).map(deposit => (deposit * 1.2 / 100).reduce((acc, int) => acc + int, 0));
+  const interest = mov.filter(mov => mov > 0).map(deposit => deposit * 1.2 / 100).filter((int, i) => {
+    console.log(arr);
+    return int >= 1;
+  })
+    .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${interest}€`;
 };
 calcDisplaySummary(account1.movements);
@@ -321,17 +327,14 @@ TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
 TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 */
 
-function calcAverageHumanAge(ages) {
-  const humanAge = ages.map(age => age <= 2 ? 2 * age : 16 + age * 4);
-  const oldDogs = humanAge.filter(age => age >= 18);
+// function calcAverageHumanAge(ages) {
+//   const humanAge = ages.map(age => age <= 2 ? 2 * age : 16 + age * 4);
+//   const oldDogs = humanAge.filter(age => age >= 18);
 
-  const averageAge = oldDogs.reduce((acc, age) => acc + age, 0) / oldDogs.length;
+//   const averageAge = oldDogs.reduce((acc, age) => acc + age, 0) / oldDogs.length;
 
-  return averageAge;
-}
-
-console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
-console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+//   return averageAge;
+// }
 
 // Podemos chamar vários métodos em uma única linha, só podemos encadear um método atrás do outro, se o anterior retornar uma array
 // PIPELINE
@@ -344,3 +347,58 @@ const totalMovementsInUSD = movements
   })
   .reduce((acc, mov) => acc + mov, 0);
 console.log(totalMovementsInUSD);
+
+/* 
+Rewrite the 'calcAverageHumanAge' function from the previous challenge, but this time as an arrow function, and using chaining!
+
+TEST DATA 1: [5, 2, 4, 1, 15, 8, 3]
+TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
+
+function calcAverageHumanAge(ages) {
+  const humanAge = ages.map(age => age <= 2 ? 2 * age : 16 + age * 4);
+  const oldDogs = humanAge.filter(age => age >= 18);
+
+  const averageAge = oldDogs.reduce((acc, age) => acc + age, 0) / oldDogs.length;
+
+  return averageAge;
+}
+
+*/
+
+const calcAverageHumanAge = ages => {
+  const humanAge = ages.map(age => age <= 2 ? 2 * age : 16 + age * 4).filter(age => age >= 18).reduce((acc, age, i, arr) => acc + age, 0) / arr.length;
+
+  return humanAge;
+};
+
+console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+
+// Find method, difference between find and filter methods
+
+// Filter retorna todos os items que atendem a condição
+// Retorna uma array - obviamente pq são vários items né
+
+// Find retorna apenas o primeiro que ele achar 
+// Retorna apenas o elemento em si
+
+const firstWithdrawal = movements.find(mov => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+
+console.log(accounts);
+
+const accData = accounts.find(acc => acc.owner === 'Steven Thomas Williams');
+console.log(accData);
+
+// For of
+
+// let accData2;
+// for (const acc of accounts) {
+//   if (acc.owner === 'Steven Thomas Williams') {
+//     accData2 = acc;
+//   }
+// }
+
+// console.log(accData2);
+
