@@ -455,3 +455,22 @@ btnClose.addEventListener('click', e => {
 
   inputCloseUsername.value = inputClosePin.value = '';
 });
+
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  // armazena o número inserido em uma variável
+  const amount = Number(inputLoanAmount.value);
+
+  // Se o valor do empréstimo for maior que 0 E existir pelo menos uma movimentação na conta que seja maior ou igual a 10% do empréstimo...
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    // Add amount
+    currentAccount.movements.push(amount);
+
+    updateUI(currentAccount);
+    inputLoanAmount.value = '';
+  }
+});
+
+// método every = retorna se todas as ações são verdadeiras de acordo com aquela condição
+
