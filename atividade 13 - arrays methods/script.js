@@ -474,3 +474,34 @@ btnLoan.addEventListener('click', function (e) {
 
 // método every = retorna se todas as ações são verdadeiras de acordo com aquela condição
 
+// Flat and flatMap
+
+const arrFlat = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arrFlat.flat());
+
+// há vários níveis de profundidade do achatamento/flat
+const arrInArrFlat = [[[1, 2], 3], [[4, 5, 6]], 7, 8];
+console.log(arrInArrFlat.flat(2));
+
+// STEP BY STEP
+// Usando o map para percorrer outros arrays e criar um novo
+// const accountsMov = accounts.map(acc => acc.movements);
+// console.log(accountsMov);
+// const allMovAcc = accountsMov.flat();
+// console.log(allMovAcc);
+// const totalMovAccounts = allMovAcc.reduce((acc, mov) => acc + mov, 0);
+// console.log(totalMovAccounts);
+
+const overalBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance);
+
+// flat e map é bem comum ser usado um após o outro, por isso o próprio js já tem um
+// Mas atenção, não há níveis de profundidade em flatMap(), então se precisarmos avançar mais é necessário usar flat();
+
+const overalBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overalBalance);
