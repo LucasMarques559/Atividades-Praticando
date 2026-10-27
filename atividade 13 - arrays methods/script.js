@@ -531,12 +531,31 @@ const breeds = [
   },
 ];
 
-const averageHuskyWeight = breeds.find(name => name.breed === 'Husky').averageWeight;
-console.log(averageHuskyWeight);
+const huskyWeight = breeds.find(breed => breed.breed === 'Husky').averageWeight;
+console.log(huskyWeight);
 
-const dogBothActivities = breeds.find(breed => breed.activities.includes('running') && breed.activities.includes('fetch')).breed;
+const dogBothActivities = breeds.filter(breed => breed.activities.includes('fetch') && breed.activities.includes('running'));
 console.log(dogBothActivities);
 
-const allActivitiesDogs = breeds.map(breed => breed.activities).flat();
-// const allActivitiesDogsFlatMap = breeds.flatMap(breed => breed.activities);
-console.log(allActivitiesDogs);
+const allActivities = breeds.map(act => act.activities).flat();
+console.log(allActivities);
+
+const uniqueActivities = [...new Set(allActivities)];
+console.log(uniqueActivities);
+
+const swimmingAdjacent = [ // criando uma array
+  new Set( // percorre a array de atividades sem duplicada
+    breeds // acessa o objeto principal
+      .filter(breed => breed.activities.includes('swimming')) // método para achar todas as raças que tem a atividade 'swimming'
+      .flatMap(breed => breed.activities) // método para retornar todas as atividades que tem junto com 'swimming'
+      .filter(activities => activities !== 'swimming') // método para retornar apenas a outra atividade
+  )
+];
+console.log(swimmingAdjacent);
+
+console.log(breeds.every(breed => breed.averageWeight > 10));
+
+console.log(breeds.some(breed => breed.activities.length >= 3));
+
+const fetchWeights = breeds.filter(breed => breed.activities.includes('fetch')).map(breed => breed.averageWeight);
+console.log(Math.max(...fetchWeights));
