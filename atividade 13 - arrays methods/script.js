@@ -148,11 +148,12 @@ conjunto.forEach(function (value, _, arr) {
 
 const containerMovements = document.querySelector('.movements');
 
-function displayMovements(movements) {
+function displayMovements(movements, sort = false) {
   containerMovements.innerHTML = '';
-  // .textContent = 0;
+  
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
 
-  movements.forEach(function (mov, i) {
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `<div class="movements__row">
@@ -472,6 +473,13 @@ btnLoan.addEventListener('click', function (e) {
   }
 });
 
+let sorted = false;
+btnSort.addEventListener('click', function(e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+})
+
 // método every = retorna se todas as ações são verdadeiras de acordo com aquela condição
 
 // Coding Challenge #4
@@ -553,8 +561,12 @@ const swimmingAdjacent = [ // criando uma array
 ];
 console.log(swimmingAdjacent);
 
+// Neste método, tudo que a condição verificar retornar true = ele retorna true
+// bem parecido com método AND
 console.log(breeds.every(breed => breed.averageWeight > 10));
 
+// Neste método, basta apenas uma vez a condição ser verdadeira = retorna true
+// bem parecido com o operador OR
 console.log(breeds.some(breed => breed.activities.length >= 3));
 
 const fetchWeights = breeds.filter(breed => breed.activities.includes('fetch')).map(breed => breed.averageWeight);
@@ -592,3 +604,33 @@ const overalBalance2 = accounts
   .flatMap(acc => acc.movements)
   .reduce((acc, mov) => acc + mov, 0);
 console.log(overalBalance);
+
+// O método sort altera de fato a matriz principal, então temos que ter muito cuidado para usar
+const owners = ['Lukas', 'Adilson', 'Emerson', 'Darlan'];
+console.log(owners.sort());
+console.log(owners); 
+
+// Esse método também não organiza os números conforme esperamos, é necessário "concertar"
+// return < 0, A, B - Keep Order
+// return > 0, B, A - Switch Order
+
+// Ascending
+// movements.sort((a, b) => {
+//   if(a > b)
+//     return 1;
+//   if(a < b)
+//     return -1;
+// });
+movements.sort((a, b) => a - b); // Como eu só preciso de um número maior que zero para ordernar em crescente
+console.log(movements);
+
+// Descending
+// movements.sort((a, b) => {
+//   if(a > b)
+//     return -1;
+//   if(a < b)
+//     return 1;
+// });
+movements.sort((a, b) => b - a); // A mesma coisa só que em decrescente
+console.log(movements);
+
