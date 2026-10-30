@@ -154,7 +154,7 @@ const containerMovements = document.querySelector('.movements');
 
 function displayMovements(movements, sort = false) {
   containerMovements.innerHTML = '';
-  
+
   const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
 
   movs.forEach(function (mov, i) {
@@ -478,7 +478,7 @@ btnLoan.addEventListener('click', function (e) {
 });
 
 let sorted = false;
-btnSort.addEventListener('click', function(e) {
+btnSort.addEventListener('click', function (e) {
   e.preventDefault();
   displayMovements(currentAccount.movements, !sorted);
   sorted = !sorted;
@@ -612,7 +612,7 @@ console.log(overalBalance);
 // O método sort altera de fato a matriz principal, então temos que ter muito cuidado para usar
 const owners = ['Lukas', 'Adilson', 'Emerson', 'Darlan'];
 console.log(owners.sort());
-console.log(owners); 
+console.log(owners);
 
 // Esse método também não organiza os números conforme esperamos, é necessário "concertar"
 // return < 0, A, B - Keep Order
@@ -651,9 +651,33 @@ const accActivity = Object.groupBy(accounts, account => {
   if (movAccLength >= 4) return 'activity';
   if (movAccLength >= 1) return 'moderate';
   return 'inactive';
-}); 
+});
 console.log(accActivity);
 
 // const groupByType = Object.groupBy(accounts, account => account.type);
-const groupByType = Object.groupBy(accounts, ({type}) => type);
+const groupByType = Object.groupBy(accounts, ({ type }) => type);
 console.log(groupByType);
+
+const arr4 = [1, 2, 3, 4, 5, 6, 7];
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+const x = new Array(7);
+console.log(x.fill(1, 3, 5));
+console.log(x.fill(1));
+
+arr.fill(23, 2, 6);
+console.log(arr);
+
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(document.querySelectorAll('.movements__value'), Number(el => el.textContent.replace('€', '')));
+  console.log(movementsUI);
+  
+  // const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+  // console.log(movements2);
+});
